@@ -1,13 +1,13 @@
-import Quiz from '@/components/Quiz';
+import Quiz from "@/components/Quiz";
 
 interface QuizPageProps {
-  params: { category: string };
-  searchParams?: { amount?: string };
+	params: { category: string };
+	searchParams?: { amount?: string };
 }
 
 export default function QuizPage({ params, searchParams }: QuizPageProps) {
-  const amount = parseInt(searchParams?.amount || '10', 10);
-  const category = params.category;
+	const amount = Number.parseInt(searchParams?.amount || "10", 10);
+	const category = params.category;
 
-  return <Quiz category={category} amount={amount} />;
+	return <Quiz category={category} amount={amount} />;
 }

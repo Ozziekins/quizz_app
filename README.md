@@ -17,9 +17,8 @@ The Quizz App is designed to provide engaging trivia quizzes across multiple cat
 
 ## 📦 Repository Structure
 
-- **`quizz-app/`**: React app (JavaScript, Vite)
+- **`quizz-app-react/`**: React app (JavaScript, Vite)
 - **`quizz-app-next/`**: Next.js app (TypeScript)
-- **`scripts/`**: Common scripts for linting, formatting, testing, and typechecking.
 
 ---
 
@@ -35,7 +34,7 @@ cd final_project
 Install dependencies for each app:
 
 ```bash
-cd quizz-app && npm install
+cd quizz-app-react && npm install
 cd ../quizz-app-next && npm install
 ```
 
@@ -64,7 +63,7 @@ Your pipeline (`.github/workflows/`) automatically performs:
 
 ## 📖 Documentation & Resources
 
-Detailed docs and guides exist within each app directory (`quizz-app/README.md` & `quizz-app-next/README.md`).
+Detailed docs and guides exist within each app directory (`quizz-app-react/README.md` & `quizz-app-next/README.md`).
 
 ---
 
@@ -82,9 +81,8 @@ Detailed docs and guides exist within each app directory (`quizz-app/README.md` 
 
 ```
 FINAL_PROJECT/
-├── quizz-app              # React Implementation
+├── quizz-app-react        # React Implementation
 ├── quizz-app-next         # Next.js Implementation
-├── scripts                # Testing/linting scripts
 └── .github/workflows      # CI/CD pipelines
 ```
 

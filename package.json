@@ -2,10 +2,17 @@
     "name": "quizz-app-monorepo",
     "private": true,
     "scripts": {
-      "lint": "./scripts/lint.sh",
-      "format": "./scripts/format.sh",
-      "typecheck": "./scripts/typecheck.sh",
-      "unit-tests": "./scripts/unit-tests.sh",
-      "e2e-tests": "./scripts/e2e-tests.sh"
-    }
+		"lint": "biome check quizz-app-react quizz-app-next",
+		"lint:fix": "biome check --write quizz-app-react quizz-app-next",
+		"format": "biome format --write quizz-app-react quizz-app-next"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@playwright/test": "^1.51.1",
+		"@types/node": "^22.13.12",
+		"lefthook": "^1.11.3"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.7"
+	}
   }

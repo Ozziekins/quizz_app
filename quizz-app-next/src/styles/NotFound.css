@@ -1,27 +1,26 @@
 .notfound-container {
-    height: 100vh;
-    width: 100vw;
-    background-color: #121212;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-  }
-  
-  .notfound-image {
-    max-width: 350px;
-    margin-bottom: 25px;
-  }
-  
-  .home-btn {
-    padding: 10px 25px;
-    background-color: #ff80ab;
-    color: #121212;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-  }
-  
+	height: 100vh;
+	width: 100vw;
+	background-color: #121212;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	overflow: hidden;
+}
+
+.notfound-image {
+	max-width: 350px;
+	margin-bottom: 25px;
+}
+
+.home-btn {
+	padding: 10px 25px;
+	background-color: #ff80ab;
+	color: #121212;
+	border-radius: 25px;
+	border: none;
+	cursor: pointer;
+}

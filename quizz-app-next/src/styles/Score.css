@@ -1,28 +1,27 @@
 .score-page {
-    text-align: center;
-    padding: 100px 20px;
-  }
-  
-  .score-container {
-    background-color: #1e1e1e;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
-    display: inline-block;
-  }
-  
-  .score {
-    font-size: 4rem;
-    margin: 20px 0;
-    color: #ff80ab;
-  }
-  
-  .home-btn {
-    padding: 10px 25px;
-    background-color: #ff80ab;
-    color: #121212;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
+	text-align: center;
+	padding: 100px 20px;
+}
+
+.score-container {
+	background-color: #1e1e1e;
+	padding: 40px;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+	display: inline-block;
+}
+
+.score {
+	font-size: 4rem;
+	margin: 20px 0;
+	color: #ff80ab;
+}
+
+.home-btn {
+	padding: 10px 25px;
+	background-color: #ff80ab;
+	color: #121212;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+}

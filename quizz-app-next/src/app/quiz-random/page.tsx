@@ -1,5 +1,5 @@
-import Quiz from '@/components/Quiz';
+import Quiz from "@/components/Quiz";
 
 export default function RandomQuizPage() {
-  return <Quiz random />;
+	return <Quiz random />;
 }

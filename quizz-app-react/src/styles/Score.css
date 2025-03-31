@@ -1,0 +1,30 @@
+.score-page {
+	text-align: center;
+	padding: 100px 20px;
+	color: #fff;
+}
+
+.score-container {
+	background-color: #1e1e1e;
+	padding: 40px;
+	border-radius: 15px;
+	display: inline-block;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.score {
+	font-size: 4rem;
+	font-weight: bold;
+	margin: 20px 0;
+	color: #ff80ab;
+}
+
+.home-btn {
+	margin-top: 25px;
+	padding: 10px 25px;
+	border: none;
+	border-radius: 20px;
+	background-color: #ff80ab;
+	color: #121212;
+	cursor: pointer;
+}

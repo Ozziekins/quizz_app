@@ -1,0 +1,73 @@
+name: Verify Code Quality
+
+on: [push, pull_request]
+
+jobs:
+  verify-react:
+    name: Verify React App (Vite)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Dependencies (React)
+        run: |
+          cd quizz-app-react
+          npm install
+
+      - name: Run Linting (React)
+        run: |
+          cd quizz-app-react
+          npm run lint:fix
+
+      - name: Run Formatting Check (React)
+        run: |
+          cd quizz-app-react
+          npm run format
+
+      - name: Run Unit Tests (React)
+        run: |
+          cd quizz-app-react
+          npm run test
+
+  verify-next:
+    name: Verify Next.js App (TS)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Dependencies (Next)
+        run: |
+          cd quizz-app-next
+          npm install
+
+      - name: Run Linting (Next)
+        run: |
+          cd quizz-app-next
+          npm run lint:fix
+
+      - name: Run Formatting Check (Next)
+        run: |
+          cd quizz-app-next
+          npm run format
+
+      - name: Run Typecheck (Next)
+        run: |
+          cd quizz-app-next
+          npm run typecheck
+
+      - name: Run Unit Tests (Next)
+        run: |
+          cd quizz-app-next
+          npm run test

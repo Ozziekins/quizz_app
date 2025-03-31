@@ -1,5 +1,5 @@
-import Categories from '@/components/Categories';
+import Categories from "@/components/Categories";
 
 export default function CategoriesPage() {
-  return <Categories />;
+	return <Categories />;
 }

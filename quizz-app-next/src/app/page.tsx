@@ -1,13 +1,13 @@
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import Creator from '@/components/Creator';
+import Creator from "@/components/Creator";
+import Features from "@/components/Features";
+import Hero from "@/components/Hero";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Features />
-      <Creator />
-    </>
-  );
+	return (
+		<>
+			<Hero />
+			<Features />
+			<Creator />
+		</>
+	);
 }
