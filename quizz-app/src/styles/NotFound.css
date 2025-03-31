@@ -1,0 +1,33 @@
+.notfound-container {
+    text-align: center;
+    padding-top: 70px;
+    color: #fff;
+    background-color: #121212;
+  }
+  
+  .notfound-image {
+    max-width: 400px;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  
+  .notfound-container h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .notfound-container p {
+    color: #bbb;
+    margin-bottom: 25px;
+  }
+  
+  .home-btn {
+    padding: 10px 25px;
+    background-color: #ff80ab;
+    color: #121212;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  

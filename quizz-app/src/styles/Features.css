@@ -1,0 +1,52 @@
+.features {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .features-subtitle {
+    color: #aaa;
+    margin-bottom: 40px;
+  }
+  
+  .features-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .feature-card {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    width: 250px;
+  }
+  
+  .feature-card .icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    color: #fff;
+  }
+  
+  .feature-card p {
+    color: #ccc;
+  }
+  
+  .learn-more {
+    background: none;
+    border: none;
+    color: #ff80ab;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  

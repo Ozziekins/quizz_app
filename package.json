@@ -1,0 +1,11 @@
+{
+    "name": "quizz-app-monorepo",
+    "private": true,
+    "scripts": {
+      "lint": "./scripts/lint.sh",
+      "format": "./scripts/format.sh",
+      "typecheck": "./scripts/typecheck.sh",
+      "unit-tests": "./scripts/unit-tests.sh",
+      "e2e-tests": "./scripts/e2e-tests.sh"
+    }
+  }

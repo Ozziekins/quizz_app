@@ -1,0 +1,38 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #121212;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .nav-buttons .btn {
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btn.explore {
+    color: #ff80ab;
+    background: transparent;
+  }
+  
+  .btn.take {
+    background-color: #4a154b;
+    color: #ff80ab;
+  }
+  
