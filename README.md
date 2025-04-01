@@ -4,8 +4,8 @@ This repository hosts two implementations of a fun trivia quiz application devel
 
 ## 🚀 Deployed Applications
 
-- **React (Vite)**: [Deployed link coming soon!](#)
-- **Next.js**: [Deployed link coming soon!](#)
+- **React (Vite)**: [View!](https://ozzie-quizz-app-react.vercel.app/)
+- **Next.js**: [View!](https://ozzie-quizz-app-next.vercel.app/)
 
 ---
 
@@ -50,14 +50,14 @@ Your pipeline (`.github/workflows/`) automatically performs:
    - Run end-to-end tests
 
 2. **On successful checks**:
-   - Deploy both apps automatically to **Vercel** or **Netlify**.
+   - Deploy both apps automatically to **Vercel**.
 
 ---
 
 ## 🧪 Testing Strategy
 
 - **Unit Tests**: At least one component interaction or API fetch is tested per framework.
-- **E2E Tests**: Single end-to-end test suite for both apps using Cypress, ensuring app integrity and functionality.
+- **E2E Tests**: Single end-to-end test suite for both apps using Playwright, ensuring app integrity and functionality.
 
 ---
 
