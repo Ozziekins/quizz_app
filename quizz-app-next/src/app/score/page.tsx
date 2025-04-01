@@ -1,11 +1,16 @@
-"use client";
-import Score from "@/components/Score";
-import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+import ScoreContent from "./ScoreContent";
 
 export default function ScorePage() {
-	const searchParams = useSearchParams();
-	const score = Number.parseInt(searchParams.get("score") || "0", 10);
-	const total = Number.parseInt(searchParams.get("total") || "0", 10);
-
-	return <Score score={score} total={total} />;
+	return (
+		<Suspense
+			fallback={
+				<section className="quiz">
+					<h2>Loading your score...</h2>
+				</section>
+			}
+		>
+			<ScoreContent />
+		</Suspense>
+	);
 }

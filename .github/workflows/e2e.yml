@@ -1,0 +1,59 @@
+name: End-to-End Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  e2e-react:
+    name: E2E - React App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Install React app dependencies
+        run: |
+          cd quizz-app-react
+          npm install
+
+      - name: Run E2E Tests for React
+        run: |
+          npx start-server-and-test 'npm run --prefix quizz-app-react preview' http://localhost:5173 'npm run e2e:react'
+
+  e2e-next:
+    name: E2E - Next App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Install Next app dependencies
+        run: |
+          cd quizz-app-next
+          npm install
+
+      - name: Run E2E Tests for Next
+        run: |
+          npx start-server-and-test 'npm run --prefix quizz-app-next start' http://localhost:3000 'npm run e2e:next'
