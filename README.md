@@ -69,7 +69,7 @@ Detailed docs and guides exist within each app directory (`quizz-app-react/READM
 
 ## 🎤 Presentation
 
-- A final presentation will demonstrate:
+The `[final presentation](docs/presentation.pptx)` demonstrates:
   - Motivation & vision behind the project.
   - Implementation differences between frameworks.
   - Testing and CI/CD strategy.
