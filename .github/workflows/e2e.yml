@@ -35,10 +35,10 @@ jobs:
         run: |
           cd quizz-app-react
           npm run build &
-          npx vite preview --port 4173 &
+          npx vite preview --port 5173 &
 
       - name: Wait for React server to be ready
-        run: npx wait-on http://localhost:4173
+        run: npx wait-on http://localhost:5173
 
       - name: Run Playwright tests for React
         run: npx playwright test e2e/react_e2e.spec.ts
