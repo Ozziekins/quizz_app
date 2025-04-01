@@ -84,6 +84,7 @@ jobs:
       - name: Start React preview server
         run: |
           cd quizz-app-react
+          npm install
           npm run build
           npx vite preview --port 5173 &
       - name: Wait for React
@@ -95,6 +96,7 @@ jobs:
       - name: Start Next preview server
         run: |
           cd quizz-app-next
+          npm install
           npm run build
           npx next start --port 3000 &
       - name: Wait for Next
