@@ -1,0 +1,144 @@
+name: Deploy Applications
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  setup:
+    name: Setup Root
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install root deps
+        run: npm install
+
+  test-react:
+    name: Test React App
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install React deps
+        run: |
+          cd quizz-app-react
+          npm install
+      - name: Lint & Format (React)
+        run: |
+          cd quizz-app-react
+          npm run lint
+          npm run format
+      - name: Unit Test (React)
+        run: |
+          cd quizz-app-react
+          npm run test
+
+  test-next:
+    name: Test Next App
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install Next deps
+        run: |
+          cd quizz-app-next
+          npm install
+      - name: Lint, Format, Typecheck (Next)
+        run: |
+          cd quizz-app-next
+          npm run lint
+          npm run format
+          npm run typecheck
+      - name: Unit Test (Next)
+        run: |
+          cd quizz-app-next
+          npm run test
+
+  e2e:
+    name: E2E Test Both Apps
+    runs-on: ubuntu-latest
+    needs: [test-react, test-next]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install root deps + browsers
+        run: |
+          npm install
+          npx playwright install --with-deps
+
+      - name: Start React preview server
+        run: |
+          cd quizz-app-react
+          npm run build
+          npx vite preview --port 5173 &
+      - name: Wait for React
+        run: npx wait-on http://localhost:5173
+
+      - name: Run E2E for React
+        run: npx playwright test e2e/react_e2e.spec.ts
+
+      - name: Start Next preview server
+        run: |
+          cd quizz-app-next
+          npm run build
+          npx next start --port 3000 &
+      - name: Wait for Next
+        run: npx wait-on http://localhost:3000
+
+      - name: Run E2E for Next
+        run: npx playwright test e2e/next_e2e.spec.ts
+
+  deploy-react:
+    name: Deploy React to Vercel
+    runs-on: ubuntu-latest
+    needs: e2e
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: |
+          cd quizz-app-react
+          npm install
+          npm run build
+      - name: Deploy React App
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_REACT }}
+
+  deploy-next:
+    name: Deploy Next to Vercel
+    runs-on: ubuntu-latest
+    needs: e2e
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: |
+          cd quizz-app-next
+          npm install
+          npm run build
+      - name: Deploy Next App
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_NEXT }}
