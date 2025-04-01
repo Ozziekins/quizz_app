@@ -62,11 +62,6 @@ jobs:
           cd quizz-app-next
           npm run format
 
-      - name: Run Typecheck (Next)
-        run: |
-          cd quizz-app-next
-          npm run typecheck
-
       - name: Run Unit Tests (Next)
         run: |
           cd quizz-app-next

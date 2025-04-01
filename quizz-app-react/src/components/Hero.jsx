@@ -10,6 +10,7 @@ export default function Hero() {
 			<p className="hero-desc">make quizzes and take quizzes with others.</p>
 			<div className="hero-buttons">
 				<button
+					type="button"
 					className="btn-primary"
 					onClick={() => navigate("/quiz/random")}
 				>

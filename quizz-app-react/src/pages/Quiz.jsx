@@ -3,6 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
+function decodeHtml(html) {
+	const txt = document.createElement("textarea");
+	txt.innerHTML = html;
+	return txt.value;
+}
+
 export default function Quiz({ random }) {
 	const navigate = useNavigate();
 	const { category } = useParams();
@@ -28,6 +34,16 @@ export default function Quiz({ random }) {
 		fetchQuiz();
 	}, [category, random, amount]);
 
+	const handleSelect = (answer) => {
+		if (!answered) {
+			setSelected(answer);
+			setAnswered(true);
+			if (answer === questions[current].correct_answer) {
+				setScoreCount((prev) => prev + 1);
+			}
+		}
+	};
+
 	const nextQuestion = () => {
 		if (current + 1 >= questions.length) {
 			navigate("/score", {
@@ -41,28 +57,15 @@ export default function Quiz({ random }) {
 	};
 
 	if (loading) return <div className="quiz">Loading...</div>;
-	//   if (current >= questions.length) return <div className="quiz">Quiz Completed!</div>;
 
 	const q = questions[current];
 	const answers = [...q.incorrect_answers, q.correct_answer].sort(
 		() => Math.random() - 0.5,
 	);
 
-	const handleSelect = (answer) => {
-		if (!answered) {
-			setSelected(answer);
-			setAnswered(true);
-			if (answer === questions[current].correct_answer) {
-				setScoreCount((prev) => prev + 1);
-			}
-		}
-	};
-
-	const isCorrect = selected === q.correct_answer;
-
 	return (
 		<section className="quiz">
-			<h2 dangerouslySetInnerHTML={{ __html: q.question }} />
+			<h2>{decodeHtml(q.question)}</h2>
 			<div className="answers">
 				{answers.map((ans) => {
 					let answerClass = "";
@@ -75,17 +78,19 @@ export default function Quiz({ random }) {
 
 					return (
 						<button
+							type="button"
 							key={ans}
 							className={`answer ${answerClass}`}
 							onClick={() => handleSelect(ans)}
-							dangerouslySetInnerHTML={{ __html: ans }}
 							disabled={answered}
-						/>
+						>
+							{decodeHtml(ans)}
+						</button>
 					);
 				})}
 			</div>
 			{answered && (
-				<button className="next-btn" onClick={nextQuestion}>
+				<button type="button" className="next-btn" onClick={nextQuestion}>
 					Next →
 				</button>
 			)}

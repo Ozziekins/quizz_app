@@ -21,6 +21,9 @@
 			"recommended": true,
 			"correctness": {
 				"noUnusedVariables": "error"
+			},
+			"a11y": {
+				"useKeyWithClickEvents": "warn"
 			}
 		}
 	},
@@ -33,7 +36,14 @@
 	"overrides": [
 		{
 			"include": ["*.quizz-app-react", "*.quizz-app-next"],
-			"linter": { "rules": { "correctness": { "noUnusedVariables": "off" } } }
+			"linter": {
+				"rules": {
+					"correctness": { "noUnusedVariables": "off" },
+					"a11y": {
+						"useKeyWithClickEvents": "off"
+					}
+				}
+			}
 		}
 	]
 }

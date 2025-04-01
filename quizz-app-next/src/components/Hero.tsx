@@ -11,6 +11,7 @@ export default function Hero() {
 			<p className="hero-desc">take quizzes and challenge yourself.</p>
 			<div className="hero-buttons">
 				<button
+					type="button"
 					className="btn-primary"
 					onClick={() => router.push("/quiz-random")}
 				>

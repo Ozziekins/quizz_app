@@ -14,7 +14,11 @@ export default function Score() {
 				<h2>Your total score is</h2>
 				<div className="score">{score}</div>
 				<p>{`${score} correct answers out of ${total}`}</p>
-				<button className="home-btn" onClick={() => navigate("/")}>
+				<button
+					type="button"
+					className="home-btn"
+					onClick={() => navigate("/")}
+				>
 					Home
 				</button>
 			</div>

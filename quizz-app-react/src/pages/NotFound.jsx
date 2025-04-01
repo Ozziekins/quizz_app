@@ -13,7 +13,7 @@ export default function NotFound() {
 			/>
 			<h2>Oops! Page Not Found</h2>
 			<p>The page you're looking for doesn't exist or has been moved.</p>
-			<button className="home-btn" onClick={() => navigate("/")}>
+			<button type="button" className="home-btn" onClick={() => navigate("/")}>
 				Go Home
 			</button>
 		</div>

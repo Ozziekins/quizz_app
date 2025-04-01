@@ -17,7 +17,11 @@ export default function Score({ score, total }: ScoreProps) {
 				<h2>Your total score is</h2>
 				<div className="score">{score}</div>
 				<p>{`${score} out of ${total}`}</p>
-				<button className="home-btn" onClick={() => router.push("/")}>
+				<button
+					type="button"
+					className="home-btn"
+					onClick={() => router.push("/")}
+				>
 					Home
 				</button>
 			</div>

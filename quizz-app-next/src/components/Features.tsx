@@ -11,7 +11,9 @@ const FeatureCard = ({ icon, title, description }: FeatureProps) => (
 		<div className="icon">{icon}</div>
 		<h3>{title}</h3>
 		<p>{description}</p>
-		<button className="learn-more">learn more →</button>
+		<button type="button" className="learn-more">
+			learn more →
+		</button>
 	</div>
 );
 

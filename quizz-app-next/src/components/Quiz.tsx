@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import "../styles/Quiz.css";
+import { decodeHtml } from "@/utils/decodeHtml";
 
 interface QuizProps {
 	category?: string;
@@ -72,30 +73,32 @@ export default function Quiz({
 
 	return (
 		<section className="quiz">
-			<h2 dangerouslySetInnerHTML={{ __html: q.question }} />
+			<h2>{decodeHtml(q.question)}</h2>
 			<div className="answers">
-				{answers.map((ans) => (
-					<button
-						key={ans}
-						className={`answer ${
-							answered
-								? ans === q.correct_answer
-									? "correct"
-									: ans === selected
-										? "incorrect"
-										: ""
-								: selected === ans
-									? "selected"
-									: ""
-						}`}
-						onClick={() => handleSelect(ans)}
-						dangerouslySetInnerHTML={{ __html: ans }}
-						disabled={answered}
-					/>
-				))}
+				{answers.map((ans) => {
+					let answerClass = "";
+					if (answered) {
+						if (ans === q.correct_answer) answerClass = "correct";
+						else if (ans === selected) answerClass = "incorrect";
+					} else if (selected === ans) {
+						answerClass = "selected";
+					}
+
+					return (
+						<button
+							type="button"
+							key={ans}
+							className={`answer ${answerClass}`}
+							onClick={() => handleSelect(ans)}
+							disabled={answered}
+						>
+							{decodeHtml(ans)}
+						</button>
+					);
+				})}
 			</div>
 			{answered && (
-				<button className="next-btn" onClick={nextQuestion}>
+				<button type="button" className="next-btn" onClick={nextQuestion}>
 					Next →
 				</button>
 			)}

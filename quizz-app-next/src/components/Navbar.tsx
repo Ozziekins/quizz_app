@@ -12,12 +12,14 @@ export default function Navbar() {
 			</div>
 			<div className="nav-buttons">
 				<button
+					type="button"
 					className="btn explore"
 					onClick={() => router.push("/categories")}
 				>
 					explore
 				</button>
 				<button
+					type="button"
 					className="btn take"
 					onClick={() => router.push("/quiz-random")}
 				>

@@ -167,10 +167,11 @@ export default function Categories() {
 							max="50"
 							onChange={(e) => setNumQuestions(e.target.value)}
 						/>
-						<button className="start-btn" onClick={startQuiz}>
+						<button type="button" className="start-btn" onClick={startQuiz}>
 							Start Quiz
 						</button>
 						<button
+							type="button"
 							className="cancel-btn"
 							onClick={() => setSelectedCategory(null)}
 						>

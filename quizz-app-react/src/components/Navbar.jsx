@@ -14,10 +14,18 @@ export default function Navbar() {
 				QuizzApp
 			</div>
 			<div className="nav-buttons">
-				<button className="btn explore" onClick={() => navigate("/categories")}>
+				<button
+					type="button"
+					className="btn explore"
+					onClick={() => navigate("/categories")}
+				>
 					explore
 				</button>
-				<button className="btn take" onClick={() => navigate("/quiz/random")}>
+				<button
+					type="button"
+					className="btn take"
+					onClick={() => navigate("/quiz/random")}
+				>
 					take quiz
 				</button>
 			</div>
