@@ -27,7 +27,7 @@ The Quizz App is designed to provide engaging trivia quizzes across multiple cat
 Clone this repository:
 
 ```bash
-git clone <your-github-repo-url>
+git clone https://github.com/Ozziekins/quizz_app
 cd final_project
 ```
 
