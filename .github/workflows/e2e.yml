@@ -23,6 +23,9 @@ jobs:
       - name: Install root dependencies (Playwright)
         run: npm install
 
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps      
+
       - name: Install React app dependencies
         run: |
           cd quizz-app-react
@@ -56,6 +59,9 @@ jobs:
 
       - name: Install root dependencies (Playwright)
         run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps      
 
       - name: Install Next.js app dependencies
         run: |
