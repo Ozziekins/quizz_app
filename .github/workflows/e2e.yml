@@ -30,6 +30,7 @@ jobs:
 
       - name: Run E2E Tests for React
         run: |
+          npm run build
           npx start-server-and-test 'npm run --prefix quizz-app-react preview' http://localhost:5173 'npm run e2e:react'
 
   e2e-next:
