@@ -1,117 +1,109 @@
-# Quizz App [React]
+# Quizz App – React Version
 
-### 🧠 Overview
-This is the **React** implementation of the Quizz App — a playful, accessible, and responsive trivia quiz interface. Users can choose a category or take a random quiz, test their knowledge, and share the fun.
+## 🧠 Project Overview
 
-Built with:
-- **React 18**
-- **Vite**
-- **React Router v6**
-- **Axios** for data fetching
-- **CSS Modules**
-- **Type checking** via JSDoc comments (JavaScript version)
+This is the **React** implementation of the Quizz App — a lightweight trivia platform with random and category-based quizzes. Built using **React Router**, **JavaScript**, and **Vitest**.
+
+The goal is to demonstrate:
+- End-to-end componentization in vanilla React
+- Good testing practices with **Vitest** and **Playwright**
+- Clean code with **Biome**
+- Modern deployment pipelines
 
 ---
 
-### 🚀 Scripts
+## 🛠 Tech Stack
 
-All commands should be run from the `quizz-app-react` folder.
+- **React 18** – Function components, hooks, and router
+- **JavaScript (ES6+)** – no TypeScript for contrast with the Next version
+- **Axios** – for fetching quiz data from [OpenTDB API](https://opentdb.com)
+- **CSS Modules** – locally scoped styles
+- **Vitest** – unit testing framework
+- **Playwright** – E2E testing and assertions
+- **Biome** – linting, formatting, and code quality
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js >= 18
+- npm or pnpm
+
+```bash
+# Clone the repo
+git clone https://github.com/Ozziekins/quizz_app.git
+cd quizz_app/quizz-app-react
+```
+
+### Scripts
+Run from inside `quizz-app-react`:
 
 ```bash
 npm install           # Install dependencies
-npm run dev           # Start development server
+npm run dev           # Start dev server (via Vite)
 npm run build         # Build production version
-npm run preview       # Preview built app locally
+npm run preview       # Serve production build
 npm run lint          # Run Biome linter
 npm run lint:fix      # Auto-fix linter issues
 npm run format        # Format files using Biome
-npm run test          # Run unit tests
-npm run test:watch    # Run unit tests in watch mode
-```
-
----
-
-### 🧪 Unit Test Highlight
-The React app includes a test that:
-- Renders the homepage and quizzes
-- Simulates user navigation and interaction
-- Checks API interaction and UI update
-
-Tests are located in `src/components/__tests__`.
-
----
-
-### 🧭 Project Structure
-```
-quizz-app-react/
-├── public/
-├── src/
-│   ├── components/         # Reusable UI components
-│   ├── pages/              # Page-level components (routes)
-│   ├── styles/             # CSS
-│   └── tests/              # Setup files for Vitest
-└── index.html
-```
-
----
-
-## Next Version of Quizz App
-
-### 🧠 Overview
-This is the **Next.js** implementation of the Quizz App — using modern routing (App Router), server components, and TypeScript.
-
-Built with:
-- **Next.js 15 (App Router)**
-- **TypeScript**
-- **Axios** for API
-- **CSS Modules**
-- **Vitest** for unit tests
-- **Playwright** for E2E testing
-
----
-
-### 🚀 Scripts
-
-All commands should be run from the `quizz-app-next` folder.
-
-```bash
-npm install           # Install dependencies
-npm run dev           # Start dev server
-npm run build         # Build production version
-npm run start         # Serve production build
-npm run lint          # Run Biome linter
-npm run lint:fix      # Auto-fix linter issues
-npm run format        # Format files using Biome
-npm run typecheck     # Run TypeScript check
 npm run test          # Run unit tests
 npm run test:watch    # Watch unit tests
 ```
 
 ---
 
-### 🧪 Unit Test Highlight
-The Next.js app includes a test that:
-- Renders dynamic route pages (e.g., `/quiz/[category]`)
-- Mocks data fetching
-- Simulates user clicks and interaction
+## 🥪 Testing
 
-Tests are located in `src/components/__tests__`.
+### Unit Tests
+Located in `src/components/__tests__`. Example:
+- Renders Navbar and responds to clicks
+- Mocks `react-router` navigation
+- Asserts presence and behavior of buttons
+
+### E2E Test
+Run from the root with:
+```bash
+npm run e2e:react
+```
+
+- Loads homepage
+- Clicks "Take Quiz"
+- Waits for question to load
+- Asserts quiz state before & after interaction
 
 ---
 
-### 🧭 Project Structure
+## 🛍️ Project Structure
+
 ```
-quizz-app-next/
+quizz-app-react/
 ├── public/
 ├── src/
-│   ├── app/                 # App router pages
-│   ├── components/          # Shared components
-│   ├── styles/              # CSS
-│   └── utils/               # Helper functions
-└── next.config.ts
+│   ├── components/          # Shared UI components
+│   ├── pages/               # Route views
+│   ├── styles/              # CSS Modules
+│   └── tests/               # Tests setup
+└── vite.config.js
 ```
 
 ---
 
-✅ Both projects pass linting, formatting, typechecking, unit, and e2e tests.
+## ⚙️ Pipeline (GitHub Actions)
+
+Triggered on push/PR to `main`:
+- Lint and format all code
+- Run unit tests
+- Run Playwright E2E tests
+- Deploy to Vercel if all pass ✅
+
+---
+
+## 📬 Contact
+
+- [o.okonicha@innopolis.university](mailto:o.okonicha@innopolis.university)
+
+---
+
+Built for course purposes — by Ozziekins 💡
 

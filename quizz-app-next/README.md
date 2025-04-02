@@ -1,23 +1,43 @@
-# Quizz App [NEXT]
+# Quizz App – Next.js Version
 
-### 🧠 Overview
+## 🧠 Project Overview
 
-This is the **Next.js** implementation of the Quizz App — using modern routing (App Router), server components, and TypeScript.
+This is the **Next.js** implementation of the Quizz App — a lightweight trivia platform with random and category-based quizzes. Built using the modern App Router, server components, and **TypeScript**.
 
-Built with:
-
-- **Next.js 15 (App Router)**
-- **TypeScript**
-- **Axios** for API
-- **CSS Modules**
-- **Vitest** for unit tests
-- **Playwright** for E2E testing
+The goal is to demonstrate:
+- End-to-end componentization using **Next 15** features
+- Good testing practices with **Vitest** and **Playwright**
+- Clean code with **Biome** and TypeScript
+- Modern deployment pipelines
 
 ---
 
-### 🚀 Scripts
+## 🛠 Tech Stack
 
-All commands should be run from the `quizz-app-next` folder.
+- **Next.js 15** – App Router, Server Components
+- **TypeScript** – Fully typed project
+- **Axios** – for fetching quiz data from [OpenTDB API](https://opentdb.com)
+- **CSS Modules** – locally scoped styles
+- **Vitest** – unit testing framework
+- **Playwright** – E2E testing and assertions
+- **Biome** – linting, formatting, and code quality
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js >= 18
+- npm or pnpm
+
+```bash
+# Clone the repo
+git clone https://github.com/Ozziekins/quizz_app.git
+cd quizz_app/quizz-app-next
+```
+
+### Scripts
+Run from inside `quizz-app-next`:
 
 ```bash
 npm install           # Install dependencies
@@ -34,32 +54,60 @@ npm run test:watch    # Watch unit tests
 
 ---
 
-### 🧪 Unit Test Highlight
+## 🧪 Testing
 
-The Next.js app includes a test that:
+### Unit Tests
 
-- Renders dynamic route pages (e.g., `/quiz/[category]`)
-- Mocks data fetching
-- Simulates user clicks and interaction
+Located in `src/components/__tests__`. Example:
+- Renders quiz questions with mock API data
+- Clicks answer options
+- Asserts score changes and navigation triggers
 
-Tests are located in `src/components/__tests__`.
+### E2E Test
+Run from the root with:
+```bash
+npm run e2e:next
+```
+
+- Loads homepage
+- Clicks "Take Quiz"
+- Waits for question to load
+- Asserts quiz state before & after interaction
 
 ---
 
-### 🧭 Project Structure
+## 🧭 Project Structure
 
 ```
 quizz-app-next/
 ├── public/
 ├── src/
 │   ├── app/                 # App router pages
-│   ├── components/          # Shared components
-│   ├── styles/              # CSS
+│   ├── components/          # Shared UI components
+│   ├── styles/              # CSS Modules
+│   ├── tests/               # Tests setup
 │   └── utils/               # Helper functions
 └── next.config.ts
 ```
 
 ---
 
-✅ Both projects pass linting, formatting, typechecking, unit, and e2e tests.
+## ⚙️ Pipeline (GitHub Actions)
+
+Triggered on push/PR to `main`:
+- Lint and format all code
+- Typecheck the project
+- Run unit tests
+- Run Playwright E2E tests
+- Deploy to Vercel if all pass ✅
+
+---
+
+## 📬 Contact
+
+- [o.okonicha@innopolis.university](mailto:o.okonicha@innopolis.university)
+
+---
+
+Built for course purposes — by Ozziekins 💡
 
