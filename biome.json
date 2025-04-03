@@ -38,7 +38,7 @@
 	},
 	"overrides": [
 		{
-			"include": ["*.quizz-app-react", "*.quizz-app-next"],
+			"include": ["."],
 			"linter": {
 				"rules": {
 					"correctness": { "noUnusedVariables": "off" },

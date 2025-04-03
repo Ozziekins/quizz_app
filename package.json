@@ -6,8 +6,8 @@
 		"lint:fix": "biome check --write quizz-app-react quizz-app-next",
 		"format": "biome format --write quizz-app-react quizz-app-next",
 		"e2e": "playwright test",
-		"e2e:react": "playwright test e2e/react_e2e.spec.ts",
-		"e2e:next": "playwright test e2e/next_e2e.spec.ts"
+		"e2e:react": "BASE_URL=http://localhost:5173 playwright test e2e/e2e.spec.ts",
+		"e2e:next": "BASE_URL=http://localhost:3000 playwright test e2e/e2e.spec.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
