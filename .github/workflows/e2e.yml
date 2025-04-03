@@ -109,7 +109,7 @@ jobs:
         run: |
           cd quizz-app-solid
           npm run build
-          npx vite preview --port 3001 &        
+          npm run preview &     
 
       - name: Wait for Solid server to be ready
         run: npx wait-on http://localhost:3001

@@ -6,6 +6,7 @@
 		"build": "vinxi build",
 		"start": "vite preview --port 3001",
 		"version": "vinxi version",
+		"preview": "NODE_ENV=production PORT=3001 node .output/server/index.js",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
