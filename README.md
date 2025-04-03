@@ -56,7 +56,7 @@
 
 ## 📚 Project Overview
 
-The **Quizz App** is a trivia-based quiz platform implemented using **three different frameworks** — React, Next.js and SolidJS. Users can take random quizzes or select from themed categories. Built as a demo to showcase full-stack frontend development, testing, and deployment practices.
+The **Quizz App** is a trivia-based quiz platform implemented using **three different frameworks** — [React demo](https://ozzie-quizz-app-react.vercel.app/), [Next.js demo](https://ozzie-quizz-app-next.vercel.app/) and [SolidJS demo](https://ozzie-quizz-app-solid.vercel.app/). Users can take random quizzes or select from themed categories. Built as a demo to showcase full-stack frontend development, testing, and deployment practices.
 
 ---
 

@@ -2,7 +2,7 @@
 	"name": "quizz-app-solid",
 	"type": "module",
 	"scripts": {
-		"dev": "BASE_URL=http://localhost:3001 vinxi dev",
+		"dev": "vinxi dev --port 3001",
 		"build": "vinxi build",
 		"start": "vite preview --port 3001",
 		"version": "vinxi version",
