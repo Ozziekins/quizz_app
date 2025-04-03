@@ -108,8 +108,8 @@ jobs:
       - name: Build and Start Solid app
         run: |
           cd quizz-app-solid
-          BASE_URL=http://localhost:3001 npm run build
-          BASE_URL=http://localhost:3001 npm run start &
+          npm run build
+          npx vite preview --port 3001 &        
 
       - name: Wait for Solid server to be ready
         run: npx wait-on http://localhost:3001
