@@ -1,6 +1,6 @@
 import "../styles/Quiz.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 function decodeHtml(html) {
@@ -59,9 +59,11 @@ export default function Quiz({ random }) {
 	if (loading) return <div className="quiz">Loading...</div>;
 
 	const q = questions[current];
-	const answers = [...q.incorrect_answers, q.correct_answer].sort(
-		() => Math.random() - 0.5,
-	);
+	const answers = useMemo(() => {
+		return [...q.incorrect_answers, q.correct_answer].sort(
+			() => Math.random() - 0.5,
+		);
+	}, [q]);
 
 	return (
 		<section className="quiz">
