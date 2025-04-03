@@ -1,99 +1,116 @@
-Quizz App – SolidJS Version
-🧠 Project Overview
-This is the SolidStart implementation of the Quizz App — a fast and interactive trivia platform offering random and category-based quizzes. Built with SolidJS, TypeScript, and a modern lightweight setup.
+# Quizz App – SolidJS Version
 
-The goal is to demonstrate:
+## 🧠 Project Overview
 
-Component architecture using SolidStart
+This is the **SolidJS** implementation of the Quizz App — a fast and reactive trivia platform featuring both random and category-based quizzes. Built using **SolidStart** and **Vinxi**, with full end-to-end testing and CI/CD integration.
 
-E2E testing using Playwright
+The project demonstrates:
+- Lightweight reactivity with **SolidJS**
+- Routing and meta management via **SolidStart**
+- Robust unit and E2E testing
+- Code quality via **Biome** and TypeScript
+- Modern workflows and deployment
 
-Code quality with Biome
+---
 
-GitHub Actions for CI/CD and deployment
+## 🛠 Tech Stack
 
-🛠 Tech Stack
-SolidJS – Fast reactive UI library
+- **SolidJS + SolidStart** – reactive UI + routing/meta
+- **TypeScript** – fully typed project
+- **OpenTDB API** – trivia data source
+- **CSS** – scoped component styles
+- **Vitest** – unit testing with `@solidjs/testing-library`
+- **Playwright** – E2E testing
+- **Biome** – code formatting & linting
+- **Vinxi** – server-side bundling
 
-SolidStart – App framework for routing and server rendering
+---
 
-TypeScript – Strongly typed modern JavaScript
+## 🚀 Getting Started
 
-Vinxi – Build and development server
+### Prerequisites
+- Node.js >= 22
+- npm or pnpm
 
-Playwright – End-to-end testing
-
-Biome – Linting, formatting, type checking
-
-🚀 Getting Started
-Prerequisites
-Node.js >= 20
-
-bash
-Copy
-Edit
+```bash
 # Clone the repo
 git clone https://github.com/Ozziekins/quizz_app.git
 cd quizz_app/quizz-app-solid
-Scripts
-bash
-Copy
-Edit
-npm install            # Install dependencies
-npm run dev            # Start development server (localhost:3001)
-npm run build          # Build production version
-npm run start          # Serve built app
-npm run lint           # Check linting using Biome
-npm run lint:fix       # Auto-fix lint issues
-npm run format         # Format code with Biome
-npm run test           # Run unit tests (Vitest)
-🧪 Testing
-End-to-End Testing (Playwright)
-Run from the root directory:
+```
 
-bash
-Copy
-Edit
-BASE_URL=http://localhost:3001 npm run e2e:solid
-Opens homepage
+### Scripts
+Run from inside `quizz-app-solid`:
 
-Clicks "Take Quiz"
+```bash
+npm install           # Install dependencies
+npm run dev           # Start dev server on port 3001
+npm run build         # Build for production
+npm run start         # Preview production build
+npm run preview       # Serve output via node on port 3001
+npm run lint          # Run Biome linter
+npm run lint:fix      # Auto-fix lint issues
+npm run format        # Format files with Biome
+npm run test          # Run unit tests
+npm run test:watch    # Watch unit tests
+```
 
-Verifies quiz question is loaded
+---
 
-Asserts correct UI state during interaction
+## 🧪 Testing
 
-Unit Tests
-Located in src/components/__tests__
-(You can add more test coverage using Vitest)
+### Unit Tests
 
-🧭 Project Structure
-arduino
-Copy
-Edit
+Located in `src/components/__tests__`. Uses `@solidjs/testing-library`.
+
+Tests cover:
+- Component rendering and interaction
+- Hook mocking (`useNavigate`, `useSearchParams`)
+- Quiz score updates and route navigation
+
+### E2E Test
+Run from root:
+```bash
+npm run e2e:solid
+```
+
+- Opens homepage
+- Clicks “Take Quiz” button
+- Asserts question loads and answers render
+- Simulates answering questions
+
+---
+
+## 🧭 Project Structure
+
+```
 quizz-app-solid/
 ├── public/
 ├── src/
-│   ├── components/        # Reusable components
-│   ├── routes/            # File-based routing
-│   ├── styles/            # Global + Theme styles
-│   └── utils/             # Helper functions
-├── app.config.ts          # Vinxi + SolidStart config
-├── playwright.config.ts   # E2E config
-└── vitest.config.ts       # Unit test config
-⚙️ CI/CD Pipeline (GitHub Actions)
-Triggered on push or PR to main:
+│   ├── components/         # Shared UI components
+│   ├── routes/             # Pages (SolidStart routing)
+│   ├── styles/             # Global & component styles
+│   ├── tests/              # Unit test setup
+│   └── utils/              # Helper functions
+├── .output/                # Server build output (Vinxi)
+└── vite.config.ts
+```
 
-Lint and format check with Biome
+---
 
-Run unit tests with Vitest
+## ⚙️ Pipeline (GitHub Actions)
 
-Run E2E tests with Playwright
+Runs on push or PR to `main`:
+- Lint and format via **Biome**
+- Run unit tests via **Vitest**
+- Run E2E tests with **Playwright**
+- Deploy to Vercel when all tests pass ✅
 
-Deploy app if all checks pass ✅
+---
 
-📬 Contact
-o.okonicha@innopolis.university
+## 📬 Contact
 
-Made for Frontend Frameworks — by Ozziekins 💡
+- [o.okonicha@innopolis.university](mailto:o.okonicha@innopolis.university)
 
+---
+
+Crafted with ❤️ using Solid — by Ozziekins ⚡
