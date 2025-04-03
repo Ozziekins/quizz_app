@@ -2,12 +2,13 @@
 	"name": "quizz-app-monorepo",
 	"private": true,
 	"scripts": {
-		"lint": "biome check quizz-app-react quizz-app-next",
-		"lint:fix": "biome check --write quizz-app-react quizz-app-next",
-		"format": "biome format --write quizz-app-react quizz-app-next",
+		"lint": "biome check quizz-app-react quizz-app-next quizz-app-solid",
+		"lint:fix": "biome check --write quizz-app-react quizz-app-next quizz-app-solid",
+		"format": "biome format --write quizz-app-react quizz-app-next quizz-app-solid",
 		"e2e": "playwright test",
 		"e2e:react": "BASE_URL=http://localhost:5173 playwright test e2e/e2e.spec.ts",
-		"e2e:next": "BASE_URL=http://localhost:3000 playwright test e2e/e2e.spec.ts"
+		"e2e:next": "BASE_URL=http://localhost:3000 playwright test e2e/e2e.spec.ts",
+		"e2e:solid": "BASE_URL=http://localhost:3001 playwright test e2e/e2e.spec.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",

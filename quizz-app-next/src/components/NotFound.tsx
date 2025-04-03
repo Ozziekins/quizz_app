@@ -5,7 +5,7 @@ export default function NotFound() {
 	return (
 		<div className="notfound-container">
 			<img
-				src="https://illustrations.popsy.co/white/crashed-error.svg"
+				src="https://illustrations.popsy.co/pink/crashed-error.svg"
 				alt="404 - Not Found"
 				className="notfound-image"
 			/>

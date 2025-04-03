@@ -1,0 +1,32 @@
+{
+	"name": "quizz-app-solid",
+	"type": "module",
+	"scripts": {
+		"dev": "BASE_URL=http://localhost:3001 vinxi dev",
+		"build": "vinxi build",
+		"start": "vinxi start",
+		"version": "vinxi version",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"test": "vitest",
+		"test:watch": "vitest --watch",
+		"e2e": "BASE_URL=http://localhost:3001 playwright test ../e2e/e2e.spec.ts"
+	},
+	"dependencies": {
+		"@solidjs/meta": "^0.29.4",
+		"@solidjs/router": "^0.15.0",
+		"@solidjs/start": "^1.1.0",
+		"solid-js": "^1.9.5",
+		"vinxi": "^0.5.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@playwright/test": "^1.51.1",
+		"vitest": "^3.1.1",
+		"typescript": "^5.3.3"
+	},
+	"engines": {
+		"node": ">=22"
+	}
+}

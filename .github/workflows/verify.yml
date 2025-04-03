@@ -66,3 +66,21 @@ jobs:
         run: |
           cd quizz-app-next
           npm run test
+          
+  verify-solid:
+    name: Verify Solid App
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install Dependencies (Solid)
+        run: cd quizz-app-solid && npm install
+      - name: Run Linting (Solid)
+        run: cd quizz-app-solid && npm run lint:fix
+      - name: Run Formatting Check (Solid)
+        run: cd quizz-app-solid && npm run format
+      - name: Run Unit Tests (Solid)
+        run: cd quizz-app-solid && npm run test

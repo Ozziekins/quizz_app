@@ -79,3 +79,40 @@ jobs:
 
       - name: Run Playwright tests for Next.js
         run: BASE_URL=http://localhost:3000 npx playwright test e2e/e2e.spec.ts
+
+  e2e-solid:
+    name: E2E - Solid App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install root dependencies (Playwright)
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps      
+
+      - name: Install Solid app dependencies
+        run: |
+          cd quizz-app-solid
+          npm install
+
+      - name: Build and Start Solid app
+        run: |
+          cd quizz-app-solid
+          BASE_URL=http://localhost:3001 npm run build
+          BASE_URL=http://localhost:3001 npm run start &
+
+      - name: Wait for Solid server to be ready
+        run: npx wait-on http://localhost:3001
+
+      - name: Run Playwright tests for Solid
+        run: BASE_URL=http://localhost:3001 npx playwright test e2e/e2e.spec.ts

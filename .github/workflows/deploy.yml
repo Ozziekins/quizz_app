@@ -66,10 +66,37 @@ jobs:
           cd quizz-app-next
           npm run test
 
+  test-solid:
+    name: Test Solid App
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Solid deps
+        run: |
+          cd quizz-app-solid
+          npm install
+
+      - name: Lint & Format (Solid)
+        run: |
+          cd quizz-app-solid
+          npm run lint
+          npm run format
+
+      - name: Unit Test (Solid)
+        run: |
+          cd quizz-app-solid
+          npm run test
+        
   e2e:
     name: E2E Test Both Apps
     runs-on: ubuntu-latest
-    needs: [test-react, test-next]
+    needs: [test-react, test-next, test-solid]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -104,6 +131,19 @@ jobs:
 
       - name: Run E2E for Next
         run: BASE_URL=http://localhost:3000 npx playwright test e2e/e2e.spec.ts
+
+      - name: Start Solid preview server
+        run: |
+          cd quizz-app-solid
+          npm install
+          npm run build
+          BASE_URL=http://localhost:3001 npm run start &
+
+      - name: Wait for Solid
+        run: npx wait-on http://localhost:3001
+
+      - name: Run E2E for Solid
+        run: BASE_URL=http://localhost:3001 npx playwright test e2e/e2e.spec.ts
 
   deploy-react:
     name: Deploy React to Vercel
@@ -144,3 +184,25 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_NEXT }}
+
+  deploy-solid:
+    name: Deploy Solid to Vercel
+    runs-on: ubuntu-latest
+    needs: e2e
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: |
+          cd quizz-app-solid
+          npm install
+          npm run build
+
+      - name: Deploy Solid App
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_SOLID }}
