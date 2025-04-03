@@ -9,7 +9,7 @@
 		"preview": "NODE_ENV=production PORT=3001 node .output/server/index.mjs",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
-		"format": "baiome format --write .",
+		"format": "biome format --write .",
 		"test": "vitest",
 		"test:watch": "vitest --watch",
 		"e2e": "BASE_URL=http://localhost:3001 playwright test ../e2e/e2e.spec.ts"
