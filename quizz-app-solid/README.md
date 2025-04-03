@@ -113,4 +113,4 @@ Runs on push or PR to `main`:
 
 ---
 
-Crafted with ❤️ using Solid — by Ozziekins ⚡
+Built for course purposes — by Ozziekins 💡
