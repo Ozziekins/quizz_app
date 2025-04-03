@@ -137,7 +137,7 @@ jobs:
           cd quizz-app-solid
           npm install
           npm run build
-          npm run start &
+          NODE_ENV=production PORT=3001 node .output/server/index.js &
       - name: Wait for Solid
         run: npx wait-on http://localhost:3001
 
