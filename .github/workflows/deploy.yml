@@ -94,7 +94,7 @@ jobs:
           npm run test
         
   e2e:
-    name: E2E Test Both Apps
+    name: E2E Test All Apps
     runs-on: ubuntu-latest
     needs: [test-react, test-next, test-solid]
     steps:
