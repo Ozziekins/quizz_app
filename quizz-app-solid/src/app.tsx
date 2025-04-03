@@ -12,7 +12,7 @@ export default function App() {
 		<Router
 			root={(props) => (
 				<MetaProvider>
-					<Title>Quizz App</Title>
+					<Title>ozzie's quizz app</Title>
 					<Navbar />
 					<main class="main">
 						<Suspense>{props.children}</Suspense>
