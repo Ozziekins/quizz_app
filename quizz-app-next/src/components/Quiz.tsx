@@ -64,14 +64,16 @@ export default function Quiz({
 		}
 	};
 
-	if (loading) return <div className="quiz">Loading...</div>;
-
 	const q = questions[current];
+
 	const answers = useMemo(() => {
+		if (!q) return [];
 		return [...q.incorrect_answers, q.correct_answer].sort(
 			() => Math.random() - 0.5,
 		);
 	}, [q]);
+
+	if (loading || !q) return <div className="quiz">Loading...</div>;
 
 	return (
 		<section className="quiz">

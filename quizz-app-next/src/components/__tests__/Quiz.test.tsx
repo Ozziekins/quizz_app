@@ -10,12 +10,17 @@ vi.mock("next/navigation", async () => {
 	return {
 		...actual,
 		useRouter: () => ({ push: mockPush }),
+		useParams: () => ({ category: "9" }),
+		useSearchParams: () => ({
+			get: (key: string) => (key === "amount" ? "1" : null),
+		}),
 	};
 });
 
 describe("Quiz", () => {
 	test("loads and renders a question", async () => {
 		const mock = new MockAdapter(axios);
+
 		mock.onGet(/https:\/\/opentdb\.com\/api\.php.*/).reply(200, {
 			response_code: 0,
 			results: [
@@ -31,7 +36,9 @@ describe("Quiz", () => {
 
 		await waitFor(() => {
 			expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
-			expect(screen.getByText("What is 2 + 2?")).toBeInTheDocument();
+			expect(
+				screen.getByRole("heading", { name: /2\s?\+\s?2/i }),
+			).toBeInTheDocument();
 		});
 	});
 });

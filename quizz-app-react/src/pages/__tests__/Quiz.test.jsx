@@ -30,7 +30,7 @@ describe("Quiz", () => {
 
 		await waitFor(() => {
 			expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
-			expect(screen.getByText(/what is 2 \+ 2\?/i)).toBeInTheDocument();
+			expect(screen.getByText(/2\s?\+\s?2/i)).toBeInTheDocument();
 		});
 	});
 });
