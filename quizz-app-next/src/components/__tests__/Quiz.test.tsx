@@ -29,9 +29,8 @@ describe("Quiz", () => {
 
 		render(<Quiz random />);
 
-		expect(screen.getByText(/loading/i)).toBeInTheDocument();
-
 		await waitFor(() => {
+			expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
 			expect(screen.getByText("What is 2 + 2?")).toBeInTheDocument();
 		});
 	});

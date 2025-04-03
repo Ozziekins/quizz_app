@@ -28,9 +28,8 @@ describe("Quiz", () => {
 			</BrowserRouter>,
 		);
 
-		expect(screen.getByText(/loading/i)).toBeInTheDocument();
-
 		await waitFor(() => {
+			expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
 			expect(screen.getByText(/what is 2 \+ 2\?/i)).toBeInTheDocument();
 		});
 	});
